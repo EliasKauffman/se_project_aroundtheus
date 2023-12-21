@@ -10,3 +10,16 @@
   height: 33px;
   width: 173px;
 }
+
+@media screen and (max-width: 320px) {
+  .header {
+    max-width: 100%;
+    margin: 0;
+    padding: 28px 0 32px 27px;
+    border-bottom: rgba(84, 84, 84, 0.7) solid 1px;
+  }
+  .header__logo {
+    height: 24px;
+    width: 126px;
+  }
+}

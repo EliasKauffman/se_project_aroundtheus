@@ -1,9 +1,8 @@
 .profile {
   color: #fff;
   margin-top: 40px;
-  display: grid;
-  grid-template-columns: 120px 1fr min-content;
-  gap: 40px;
+  display: flex;
+  gap: 30px;
   align-items: center;
   padding-bottom: 51px;
 }
@@ -15,8 +14,12 @@
 }
 
 .profile__info {
-  display: flex;
-  gap: 18px;
+  display: grid;
+  grid-template-areas: "title button" "description description";
+  grid-template-columns: minmax(373px, auto) auto;
+  grid-template-rows: minmax(auto);
+  column-gap: 18px;
+  row-gap: 7px;
 }
 
 .profile__name {
@@ -27,15 +30,17 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  grid-area: title;
 }
 
 .profile__description {
-  margin: 7px 0 0;
+  margin: 0;
   font-size: 18px;
   font-weight: 400;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  grid-area: description;
 }
 
 .profile__button {
@@ -43,22 +48,66 @@
   border: #fff solid;
 }
 
+.profile__button:hover {
+  opacity: 0.6;
+  transition: opacity 0.5s;
+}
+
 .profile__button_edit {
+  background: transparent url(../images/Vectorpen.svg) center no-repeat;
   height: 24px;
   width: 24px;
   align-self: center;
   margin: 15px 0 9px;
-}
-
-.profile__edit_symbol {
+  grid-area: button;
 }
 
 .profile__button_add {
+  background: transparent url(../images/Vectorplus.svg) center no-repeat;
   height: 50px;
   width: 150px;
   margin-left: auto;
-  align-self: center;
 }
 
-.profile__add_symbol {
+@media screen and (max-width: 320px) {
+  .profile {
+    margin-top: 42px;
+    flex-direction: column;
+    padding-bottom: 36px;
+  }
+
+  .profile__info {
+    grid-template-columns: minmax(196px, auto) auto;
+    column-gap: 10px;
+    row-gap: 14px;
+  }
+
+  .profile__name {
+    font-size: 22px;
+    line-height: 24px;
+    text-align: center;
+    max-width: 196px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .profile__description {
+    text-align: center;
+    font-size: 14px;
+    max-width: 282px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .profile__button_edit {
+    height: 18px;
+    width: 18px;
+    margin: 0;
+  }
+
+  .profile__button_add {
+    height: 50px;
+    width: 282px;
+    margin: 0;
+  }
 }

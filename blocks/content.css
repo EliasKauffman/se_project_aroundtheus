@@ -2,3 +2,12 @@
   max-width: 68.75%;
   margin: 0 auto;
 }
+
+@media screen and (max-width: 320px) {
+  .content {
+    max-width: 100%;
+    margin: 0;
+    padding-left: 19px;
+    padding-right: 19px;
+  }
+}
