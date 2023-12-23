@@ -16,8 +16,7 @@
 .profile__info {
   display: grid;
   grid-template-areas: "title button" "description description";
-  grid-template-columns: minmax(373px, auto) auto;
-  grid-template-rows: minmax(auto);
+  grid-template-columns: minmax(auto) auto;
   column-gap: 18px;
   row-gap: 7px;
 }

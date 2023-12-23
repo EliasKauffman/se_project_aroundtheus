@@ -28,3 +28,18 @@
     width: 282px;
   }
 }
+
+@media screen and (max-width: 900px) {
+  .footer {
+    max-width: 100%;
+    margin: 0;
+    padding-left: 8%;
+  }
+
+  .footer__copywright {
+    padding-top: 48px;
+    padding-bottom: 36px;
+    font-size: 14px;
+    width: 282px;
+  }
+}
