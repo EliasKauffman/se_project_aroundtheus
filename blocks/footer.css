@@ -10,23 +10,7 @@
   padding-bottom: 60px;
   font-size: 18px;
   font-weight: 400;
-  width: 318px;
-  height: 18px;
-}
-
-@media screen and (max-width: 320px) {
-  .footer {
-    max-width: 100%;
-    margin: 0;
-    padding-left: 19px;
-  }
-
-  .footer__copywright {
-    padding-top: 48px;
-    padding-bottom: 36px;
-    font-size: 14px;
-    width: 282px;
-  }
+  max-width: 318px;
 }
 
 @media screen and (max-width: 900px) {
@@ -40,6 +24,12 @@
     padding-top: 48px;
     padding-bottom: 36px;
     font-size: 14px;
-    width: 282px;
+    max-width: 282px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .footer {
+    padding-left: 19px;
   }
 }

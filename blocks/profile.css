@@ -11,6 +11,7 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .profile__info {
@@ -50,9 +51,10 @@
 .profile__button:hover {
   opacity: 0.6;
   transition: opacity 0.5s;
+  cursor: pointer;
 }
 
-.profile__button_edit {
+.profile__button_type_edit {
   background: transparent url(../images/Vectorpen.svg) center no-repeat;
   height: 24px;
   width: 24px;
@@ -61,7 +63,7 @@
   grid-area: button;
 }
 
-.profile__button_add {
+.profile__button_type_add {
   background: transparent url(../images/Vectorplus.svg) center no-repeat;
   height: 50px;
   width: 150px;
@@ -98,13 +100,13 @@
     margin-right: auto;
   }
 
-  .profile__button_edit {
+  .profile__button_type_edit {
     height: 18px;
     width: 18px;
     margin: 0;
   }
 
-  .profile__button_add {
+  .profile__button_type_add {
     height: 50px;
     width: 282px;
     margin: 0;
