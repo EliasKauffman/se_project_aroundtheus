@@ -70,13 +70,21 @@
   margin-left: auto;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 650px) {
   .profile {
     margin-top: 42px;
     flex-direction: column;
     padding-bottom: 36px;
   }
 
+  .profile__button_type_add {
+    height: 50px;
+    width: 282px;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
   .profile__info {
     grid-template-columns: minmax(196px, auto) auto;
     column-gap: 10px;
@@ -103,12 +111,6 @@
   .profile__button_type_edit {
     height: 18px;
     width: 18px;
-    margin: 0;
-  }
-
-  .profile__button_type_add {
-    height: 50px;
-    width: 282px;
     margin: 0;
   }
 }
