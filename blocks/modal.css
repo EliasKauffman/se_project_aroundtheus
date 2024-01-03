@@ -56,7 +56,7 @@
   flex-direction: column;
 }
 
-.modal__form_input {
+.modal__form-input {
   padding: 0 0 13px;
   border: none;
   margin-bottom: 30px;
