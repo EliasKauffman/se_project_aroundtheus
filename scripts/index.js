@@ -28,8 +28,17 @@ const initialCards = [
 const editButton = document.querySelector(".profile__button_type_edit");
 const modal = document.querySelector(".modal");
 const closeButton = document.querySelector(".modal__close");
+const profileName = document.querySelector(".profile__name");
+const profileDescription = document.querySelector(".profile__description");
+const inputName = document.querySelector("#input-name");
+const inputDescritpion = document.querySelector("#input-description");
+
+console.log(profileDescription.textContent);
 
 editButton.addEventListener("click", function () {
+  inputName.value = profileName.textContent;
+  inputDescritpion.value = profileDescription.textContent;
+
   modal.classList.add("modal_opened");
 });
 closeButton.addEventListener("click", function () {
