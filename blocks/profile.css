@@ -61,6 +61,7 @@
   align-self: center;
   margin: 15px 0 9px;
   grid-area: button;
+  border-width: 1px;
 }
 
 .profile__button_type_add {
@@ -68,6 +69,8 @@
   height: 50px;
   width: 150px;
   margin-left: auto;
+  border-radius: 2px;
+  border-width: 1px;
 }
 
 @media screen and (max-width: 650px) {
@@ -81,6 +84,7 @@
     height: 50px;
     width: 282px;
     margin: 0;
+    background-size: 16px;
   }
 }
 
@@ -112,5 +116,6 @@
     height: 18px;
     width: 18px;
     margin: 0;
+    background-size: 7.5px;
   }
 }
