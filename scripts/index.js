@@ -59,6 +59,20 @@ function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEL = cardElement.querySelector(".card__image");
   const cardInfoEL = cardElement.querySelector(".card__info");
+  const likeButton = cardElement.querySelector(".card__button");
+  const deleteButton = cardElement.querySelector(".card__button_type_delete");
+
+  deleteButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
+
+  //add click listener to the cardImageEL
+  ////openModal with previewImageModal
+
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("card__button_type_like");
+  });
+
   cardImageEL.setAttribute("src", cardData.link);
   cardImageEL.setAttribute("alt", cardData.name);
   cardInfoEL.textContent = cardData.name;
