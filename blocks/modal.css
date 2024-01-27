@@ -80,6 +80,33 @@
   cursor: pointer;
 }
 
+.modal__preview {
+  padding: 0;
+  border-radius: 10px;
+  position: relative;
+  margin: auto;
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+}
+
+.modal__list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.modal__preview-image {
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
+.modal__description {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
 @media screen and (max-width: 525px) {
   .modal__container {
     padding: 25px 22px;
