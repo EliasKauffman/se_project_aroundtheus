@@ -48,11 +48,11 @@
       </footer>
     </div>
 
-    <div class="modal">
+    <div class="modal" id="edit-modal">
       <div class="modal__container">
         <button class="modal__close" type="button"></button>
         <p class="modal__heading">Edit profile</p>
-        <form class="modal__form" name="editProfile">
+        <form class="modal__form" name="editProfile" id="edit-profile-form">
           <input
             type="text"
             name="name"
@@ -68,6 +68,30 @@
             placeholder="Description"
           />
           <button class="modal__button" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="add-modal">
+      <div class="modal__container">
+        <button class="modal__close" type="button"></button>
+        <p class="modal__heading">New Place</p>
+        <form class="modal__form" name="editProfile" id="add-card-form">
+          <input
+            type="text"
+            name="title"
+            class="modal__form-input"
+            id="input-title"
+            placeholder="Title"
+          />
+          <input
+            type="text"
+            name="link"
+            class="modal__form-input"
+            id="input-link"
+            placeholder="Image link"
+          />
+          <button class="modal__button" type="submit">Create</button>
         </form>
       </div>
     </div>
