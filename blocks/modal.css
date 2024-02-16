@@ -19,6 +19,7 @@
 }
 
 .modal__container {
+  max-width: 358px;
   background-color: #fff;
   padding: 36px;
   border-radius: 10px;
@@ -82,6 +83,21 @@
 .modal__button:hover {
   opacity: 0.8;
   cursor: pointer;
+}
+
+.modal__button_disabled {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.2);
+  border: 1px rgba(0, 0, 0, 0.2) solid;
+}
+
+.modal__input_type_error {
+}
+
+.modal__error_visible {
+}
+
+.modal__error {
 }
 
 .modal__preview {
