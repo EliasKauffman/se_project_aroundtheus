@@ -46,14 +46,17 @@ const cardTemplate =
 const imagePreview = previewImageModal.querySelector(".modal__preview-image");
 const imagePreviewInfo = previewImageModal.querySelector(".modal__description");
 const closeButtons = document.querySelectorAll(".modal__close");
+const modals = document.querySelectorAll(".modal");
 // Functions
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEsc);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEsc);
 }
 
 function getCardElement(cardData) {
@@ -87,6 +90,13 @@ function getCardElement(cardData) {
 function renderCard(cardData, wrapper) {
   const cardElement = getCardElement(cardData);
   wrapper.prepend(cardElement);
+}
+
+function handleEsc(evt) {
+  const modal = document.querySelector(".modal_opened");
+  if (evt.key === "Escape") {
+    closeModal(modal);
+  }
 }
 
 // Event Handlers
@@ -130,4 +140,12 @@ closeButtons.forEach((button) => {
 initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
   cardListEL.append(cardElement);
+});
+
+modals.forEach((modal) => {
+  modal.addEventListener("click", (evt) => {
+    if (evt.target.classList.contains("modal")) {
+      closeModal(modal);
+    }
+  });
 });
