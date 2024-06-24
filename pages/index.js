@@ -1,3 +1,6 @@
+import FormValidator from "../components/FormValidator.js";
+// import Card from "../components/Card.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -25,7 +28,8 @@ const initialCards = [
   },
 ];
 
-// Elements
+// const card = new Card(initialCards, "#card-template");
+
 const addImageModal = document.querySelector("#add-modal");
 const addCardFormElement = addImageModal.querySelector(".modal__form");
 const profileEditButton = document.querySelector(".profile__button_type_edit");
@@ -47,7 +51,14 @@ const imagePreview = previewImageModal.querySelector(".modal__preview-image");
 const imagePreviewInfo = previewImageModal.querySelector(".modal__description");
 const closeButtons = document.querySelectorAll(".modal__close");
 const modals = document.querySelectorAll(".modal");
-// Functions
+
+const validationSettings = {
+  inputSelector: ".modal__form-input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
@@ -117,11 +128,10 @@ function handelAddCardSubmit(evt) {
   inputLink.value = "";
 }
 
-//Event Listeners
-
 profileEditButton.addEventListener("click", () => {
   inputName.value = profileName.textContent;
   inputDescritpion.value = profileDescription.textContent;
+  editFormValidator.checkValidation();
 
   openModal(editProfileModal);
 });
@@ -129,8 +139,6 @@ profileEditButton.addEventListener("click", () => {
 addNewCardButton.addEventListener("click", () => openModal(addImageModal));
 profileForm.addEventListener("submit", handelProfileEditSubmit);
 cardForm.addEventListener("submit", handelAddCardSubmit);
-
-//Arrays
 
 closeButtons.forEach((button) => {
   const popup = button.closest(".modal");
@@ -149,3 +157,8 @@ modals.forEach((modal) => {
     }
   });
 });
+
+const editFormValidator = new FormValidator(validationSettings, profileForm);
+editFormValidator.enableValidation();
+const addFormValidator = new FormValidator(validationSettings, cardForm);
+addFormValidator.enableValidation();
