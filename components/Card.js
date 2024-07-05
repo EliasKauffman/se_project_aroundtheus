@@ -30,27 +30,19 @@ export default class Card {
       .classList.toggle("card__button_type_like");
   }
 
-  _handleImageClick() {
-    imagePreview.setAttribute("src", data.link);
-    imagePreview.setAttribute("alt", data.name);
-    imagePreviewInfo.textContent = data.name;
-    openModal(previewImageModal);
-  }
-
   _getTemplate() {
-    return document
+    const cardElement = document
       .querySelector(this._cardSelector)
-      .querySelector(".card")
-      .content.cloneNode(true);
+      .cloneNode(true);
+    return cardElement;
   }
 
   getCardElement() {
     this._cardElement = this._getTemplate();
-
     this._cardImageEl = this._cardElement.querySelector(".card__image");
-    this._cardName = this._cardElement.querySelector(".card__title");
-    this._cardImageEl.src = this._link;
-    this._cardImageEl.alt = this._name;
+    this._cardName = this._cardElement.querySelector(".card__info");
+    this._cardImageEl.setAttribute("src", this._link);
+    this._cardImageEl.setAttribute("alt", this._name);
     this._cardName.textContent = this._name;
 
     this._setEventListeners();

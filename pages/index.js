@@ -58,6 +58,13 @@ const validationSettings = {
   errorClass: "modal__error_visible",
 };
 
+const cardElement = new Card(initialCards, "#card-template");
+
+const editFormValidator = new FormValidator(validationSettings, profileForm);
+editFormValidator.enableValidation();
+const addFormValidator = new FormValidator(validationSettings, cardForm);
+addFormValidator.enableValidation();
+
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", handleEsc);
@@ -69,7 +76,7 @@ function closeModal(modal) {
 }
 
 function renderCard(wrapper) {
-  const cardElement = createCard(data);
+  cardElement.getCardElement();
   wrapper.prepend(cardElement);
 }
 
@@ -78,11 +85,6 @@ function handleEsc(evt) {
   if (evt.key === "Escape") {
     closeModal(modal);
   }
-}
-
-function createCard(data) {
-  const cardElement = new Card(data, "#card-template", handlePreviewPicture);
-  return cardElement.getCardElement();
 }
 
 // Event Handlers
@@ -129,8 +131,3 @@ modals.forEach((modal) => {
     }
   });
 });
-
-const editFormValidator = new FormValidator(validationSettings, profileForm);
-editFormValidator.enableValidation();
-const addFormValidator = new FormValidator(validationSettings, cardForm);
-addFormValidator.enableValidation();
