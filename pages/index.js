@@ -43,7 +43,6 @@ const inputLink = addCardFormElement.querySelector("#input-link");
 const profileForm = document.forms["editProfile"];
 const cardForm = document.forms["addCard"];
 const cardListEL = document.querySelector(".cards__list");
-const cardTemplate = "#card-template";
 const imagePreview = previewImageModal.querySelector(".modal__preview-image");
 const imagePreviewInfo = previewImageModal.querySelector(".modal__description");
 const closeButtons = document.querySelectorAll(".modal__close");
@@ -56,8 +55,6 @@ const validationSettings = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
-
-const cardElement = new Card(initialCards, "#card-template");
 
 const editFormValidator = new FormValidator(validationSettings, profileForm);
 editFormValidator.enableValidation();
@@ -79,8 +76,15 @@ function renderCard(cardData, wrapper) {
   wrapper.prepend(cardElement);
 }
 
+function handleImageClick(name, link) {
+  imagePreview.setAttribute("src", link);
+  imagePreview.setAttribute("alt", name);
+  imagePreviewInfo.textContent = name;
+  openModal(previewImageModal);
+}
+
 function getCardElement(cardData) {
-  const card = new Card(cardData, "#card-template");
+  const card = new Card(cardData, "#card-template", handleImageClick);
   return card.getCardElement();
 }
 
@@ -107,6 +111,7 @@ function handelAddCardSubmit(evt) {
   closeModal(addImageModal);
   inputTitle.value = "";
   inputLink.value = "";
+  addFormValidator.disableButton();
 }
 
 profileEditButton.addEventListener("click", () => {
@@ -126,7 +131,7 @@ closeButtons.forEach((button) => {
   button.addEventListener("click", () => closeModal(popup));
 });
 
-initialCards.forEach((cardData) => renderCard(cardData, cardListEL));
+initialCards.reverse().forEach((cardData) => renderCard(cardData, cardListEL));
 
 modals.forEach((modal) => {
   modal.addEventListener("click", (evt) => {
