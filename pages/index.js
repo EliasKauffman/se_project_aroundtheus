@@ -44,7 +44,6 @@ const profileForm = document.forms["editProfile"];
 const cardForm = document.forms["addCard"];
 const cardListEL = document.querySelector(".cards__list");
 const cardTemplate = "#card-template";
-// document.querySelector("#card-template").content.firstElementChild;
 const imagePreview = previewImageModal.querySelector(".modal__preview-image");
 const imagePreviewInfo = previewImageModal.querySelector(".modal__description");
 const closeButtons = document.querySelectorAll(".modal__close");
@@ -75,9 +74,14 @@ function closeModal(modal) {
   document.removeEventListener("keydown", handleEsc);
 }
 
-function renderCard(wrapper) {
-  cardElement.getCardElement();
+function renderCard(cardData, wrapper) {
+  const cardElement = getCardElement(cardData);
   wrapper.prepend(cardElement);
+}
+
+function getCardElement(cardData) {
+  const card = new Card(cardData, "#card-template");
+  return card.getCardElement();
 }
 
 function handleEsc(evt) {
@@ -122,7 +126,7 @@ closeButtons.forEach((button) => {
   button.addEventListener("click", () => closeModal(popup));
 });
 
-initialCards.forEach((data) => renderCard(data));
+initialCards.forEach((cardData) => renderCard(cardData, cardListEL));
 
 modals.forEach((modal) => {
   modal.addEventListener("click", (evt) => {
