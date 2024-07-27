@@ -67,8 +67,7 @@ export default class FormValidator {
   }
 
   checkValidation() {
-    const inputElements = [...this._form.querySelectorAll(this._inputSelector)];
-    inputElements.forEach((inputElement) => {
+    this._inputElements.forEach((inputElement) => {
       this._checkInputValidity(inputElement);
       this._toggleButtonState();
     });
@@ -81,7 +80,7 @@ export default class FormValidator {
     this._setEventListeners();
   }
 
-  resetValidation() {
+  resetForm() {
     this._form.reset();
   }
 }
