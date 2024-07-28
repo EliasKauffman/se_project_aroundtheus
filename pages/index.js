@@ -89,8 +89,8 @@ function getCardElement(cardData) {
 }
 
 function handleEsc(evt) {
-  const modal = document.querySelector(".modal_opened");
   if (evt.key === "Escape") {
+    const modal = document.querySelector(".modal_opened");
     closeModal(modal);
   }
 }
