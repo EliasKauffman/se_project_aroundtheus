@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AroundTheUS</title>
-    <link rel="stylesheet" href="./pages/index.css" />
-    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="shortcut icon" href="./images/favicon.ico" />
     <meta name="description" content="Third Project TripleTen" />
     <meta name="author" content="Elias Kauffman" />
     <meta name="keywords" content="socialmedia, photos, friends" />
@@ -13,19 +12,13 @@
   <body class="base">
     <div class="page">
       <header class="header">
-        <img
-          src="./images/Vectorlogo.svg"
-          alt="Logo Around The US"
-          class="header__logo"
-        />
+        <img src="<%=require("./images/Vectorlogo.svg")%>" alt="Logo Around The
+        US" class="header__logo" />
       </header>
       <main class="content">
         <section class="profile">
-          <img
-            src="./images/jacques-cousteauphoto.jpg"
-            alt="Photo Jacques Cousteau"
-            class="profile__photo"
-          />
+          <img src="<%=require("./images/jacques-cousteauphoto.jpg")%>"
+          alt="Photo Jacques Cousteau" class="profile__photo" />
           <div class="profile__info">
             <h1 class="profile__name">Jacques Cousteau</h1>
             <button
@@ -140,7 +133,5 @@
         <button class="card__button_type_delete"></button>
       </li>
     </template>
-
-    <script src="./pages/index.js" type="module" defer></script>
   </body>
 </html>
