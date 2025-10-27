@@ -4,6 +4,7 @@ import Section from "../utils/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import "./index.css";
+// import { pop } from "core-js/core/array";
 
 const initialCards = [
   {
@@ -143,6 +144,7 @@ profileEditButton.addEventListener("click", () => {
 });
 
 addNewCardButton.addEventListener("click", () => openModal(addImageModal));
+
 cardForm.addEventListener("submit", handelAddCardSubmit);
 
 const popupWithForm = new PopupWithForm({
@@ -158,6 +160,7 @@ const popupWithForm = new PopupWithForm({
 popupWithForm.setEventListeners();
 
 const popupWithImage = new PopupWithImage({ popupSelector: "#preview-modal" });
+
 popupWithImage.setEventListeners();
 
 const section = new Section(
