@@ -8,7 +8,6 @@ import { initialCards, validationSettings } from "../utils/Constants.js";
 import "./index.css";
 
 const addImageModal = document.querySelector("#add-modal");
-const addCardFormElement = document.forms["addCard"];
 const profileEditButton = document.querySelector(".profile__button_type_edit");
 const addNewCardButton = document.querySelector(".profile__button_type_add");
 const editProfileModal = document.querySelector("#edit-modal");
@@ -17,11 +16,8 @@ const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 const inputName = document.querySelector("#input-name");
 const inputDescritpion = document.querySelector("#input-description");
-const inputTitle = addCardFormElement.querySelector("#input-title");
-const inputLink = addCardFormElement.querySelector("#input-link");
 const profileForm = document.forms["editProfile"];
 const cardForm = document.forms["addCard"];
-const cardListEL = document.querySelector(".cards__list");
 const imagePreviewInfo = previewImageModal.querySelector(".modal__description");
 
 // Form Validation
@@ -50,10 +46,12 @@ popupWithFormEdit.setEventListeners();
 const popupWithFormAddImage = new PopupWithForm({
   popupSelector: "#add-modal",
   handleFormSubmit: (formData) => {
-    const name = formData["input-title"];
-    const link = formData["input-link"];
-    renderCard({ name, link }, cardListEL);
+    const name = formData["title"];
+    const link = formData["link"];
+    const cardElement = getCardElement({ name, link });
+    section.addItem(cardElement);
     popupWithFormAddImage.close();
+    addFormValidator.disableButton();
   },
 });
 popupWithFormAddImage.setEventListeners();
@@ -80,16 +78,6 @@ const section = new Section(
 );
 section.renderItems();
 
-function handelAddCardSubmit(evt) {
-  evt.preventDefault();
-  const name = inputTitle.value;
-  const link = inputLink.value;
-  renderCard({ name, link }, cardListEL);
-  popupWithFormAddImage.close(addImageModal);
-  inputTitle.value = "";
-  inputLink.value = "";
-  addFormValidator.disableButton();
-}
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
   jobSelector: ".profile__description",
