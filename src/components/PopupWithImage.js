@@ -1,10 +1,12 @@
-import popup from "./Popup";
-export default class PopupWithImage extends popup {
+import Popup from "./Popup";
+export default class PopupWithImage extends Popup {
   constructor({ popupSelector }) {
     super({ popupSelector });
-    this._imageElement = this._popupElement.querySelector(".modal__image");
+    this._imageElement = this._popupElement.querySelector(
+      ".modal__preview-image"
+    );
     this._captionElement = this._popupElement.querySelector(
-      ".modal__image-caption"
+      ".modal__description"
     );
   }
 

@@ -1,4 +1,4 @@
-export default class popup {
+export default class Popup {
   constructor({ popupSelector }) {
     this._popupElement = document.querySelector(popupSelector);
   }
@@ -23,7 +23,7 @@ export default class popup {
     this._popupElement.addEventListener("mousedown", (evt) => {
       if (
         evt.target.classList.contains("modal_opened") ||
-        evt.target.classList.contains("modal__close-button")
+        evt.target.classList.contains("modal__close")
       ) {
         this.close();
       }
